@@ -4,10 +4,13 @@
   "description": "",
   "source": "src/main.ts",
   "main": "dist/main.js",
+  "type": "module",
   "scripts": {
     "watch": "parcel watch",
     "build": "parcel build",
-    "lint-fix": "eslint --cache --fix src/ && prettier --write src/"
+    "lint-fix": "eslint --cache --fix src/ && prettier --write src/",
+    "type": "tsc --noEmit",
+    "tadd": "pnpm dlx typesync"
   },
   "keywords": [],
   "targets": {
