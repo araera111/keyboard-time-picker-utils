@@ -1,12 +1,21 @@
-import { User } from './types/type';
+import produce from 'immer';
+import { default as Redis } from 'ioredis';
 
-const main = () => {
-	const user: User = {
-		id: 1,
-		name: 'Takeda'
-	};
-	console.log({ user });
-	console.log('main');
+const redis = new Redis();
+
+type User = {
+	id: number;
+	name: string;
 };
 
+const basicUser: User = {
+	id: 0,
+	name: ''
+};
+const main = async () => {
+	const user = produce(basicUser, (draft) => {
+		draft.id = 1;
+		draft.name = 'named';
+	});
+};
 main();
