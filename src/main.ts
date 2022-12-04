@@ -1,11 +1,11 @@
 type User = {
-	id: number;
-	name: string;
+  id: number;
+  name: string;
 };
 
 const basicUser: User = {
-	id: 0,
-	name: ''
+  id: 0,
+  name: ''
 };
 const main = async () => {};
 main();
