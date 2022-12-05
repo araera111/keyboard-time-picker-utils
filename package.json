@@ -8,7 +8,7 @@
   "scripts": {
     "start": "node ./dist/main.js",
     "build": "rimraf ./dist/* && tsc --project tsconfig.build.json",
-    "upload": "sentry-cli releases new $RELEASE && sentry-cli releases files $RELEASE upload-sourcemaps './dist' && sentry-cli releases finalize $RELEASE",
+    "upload": "zx upload.mjs",
     "lint-fix": "eslint --cache --fix src/ && prettier --write src/",
     "test": "jest",
     "type": "tsc --noEmit"
@@ -28,6 +28,7 @@
     "@types/rimraf": "^3.0.2",
     "@typescript-eslint/eslint-plugin": "^5.45.0",
     "@typescript-eslint/parser": "^5.45.0",
+    "crossenv": "^0.0.2-security",
     "eslint": "^8.29.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-base-typescript": "^1.1.0",
@@ -40,7 +41,8 @@
     "prettier": "^2.8.0",
     "rimraf": "^3.0.2",
     "tsc": "^2.0.4",
-    "typescript": "^4.9.3"
+    "typescript": "^4.9.3",
+    "zx": "^7.1.1"
   },
   "dependencies": {
     "@sentry/cli": "^2.10.0",
