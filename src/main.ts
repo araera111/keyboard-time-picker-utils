@@ -4,7 +4,7 @@ import * as Sentry from '@sentry/node';
 import produce from 'immer';
 import { releaseVersion, toSentryPath } from './sentry/sentryUtil';
 import { User } from './types/type';
-import { add2 } from './utils/ua';
+import { eee } from './utils/compo/eee';
 
 const basicUser: User = {
   id: 0,
@@ -29,7 +29,7 @@ const main = () => {
     draft.name = 'tanaka';
   });
   console.log(user2);
-  add2();
+  eee();
 };
 
 try {
