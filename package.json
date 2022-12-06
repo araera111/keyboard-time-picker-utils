@@ -7,7 +7,7 @@
   "module": "dist/module.js",
   "scripts": {
     "start": "node ./dist/main.js",
-    "build": "rimraf ./dist/* && tsc --build tsconfig.json",
+    "build": "rimraf ./dist && tsc --build tsconfig.json",
     "upload": "zx upload.mjs",
     "lint-fix": "eslint --cache --fix src/ && prettier --write src/",
     "test": "jest",
@@ -25,6 +25,7 @@
     "@types/jest": "^29.2.3",
     "@types/node": "^18.11.10",
     "@types/prettier": "^2.7.1",
+    "@types/ramda": "^0.28.20",
     "@types/rimraf": "^3.0.2",
     "@typescript-eslint/eslint-plugin": "^5.45.0",
     "@typescript-eslint/parser": "^5.45.0",
@@ -45,12 +46,14 @@
     "zx": "^7.1.1"
   },
   "dependencies": {
+    "@igor.dvlpr/upath": "^2.1.2",
     "@sentry/cli": "^2.10.0",
     "@sentry/integrations": "^7.23.0",
     "@sentry/node": "^7.23.0",
     "@sentry/tracing": "^7.23.0",
     "@sentry/typescript": "^5.20.1",
-    "immer": "^9.0.16"
+    "immer": "^9.0.16",
+    "ramda": "^0.28.0"
   },
   "volta": {
     "node": "18.12.1"
