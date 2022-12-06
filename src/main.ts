@@ -23,7 +23,7 @@ Sentry.init({
   ]
 });
 
-const main = async () => {
+const main = () => {
   const user2 = produce(basicUser, (draft) => {
     draft.id = 1;
     draft.name = 'tanaka';
