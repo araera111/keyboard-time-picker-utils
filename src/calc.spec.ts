@@ -6,6 +6,6 @@ describe('calcAge', () => {
       years: 31,
       months: 11
     };
-    expect(calcAge()).toBe();
+    expect(calcAge(today, target)).toBe(result);
   });
 });
