@@ -1,14 +1,14 @@
 import cors from 'cors';
-import express from 'express';
+import express, { json } from 'express';
 const app = express();
-const port = 21001
-app.use(cors())
+const port = 22001;
+app.use(cors());
+app.use(json());
 
 app.get('/', (req, res) => {
-  res.send('HELLO WORLD NODE SERVER...')
-})
+  res.send('HELLO WORLD NODE SERVER...');
+});
 
 app.listen(port, () => {
-  console.log(`start server 21001`);
-})
-
+  console.log(`start server 22001`);
+});
