@@ -1,5 +1,6 @@
 import cors from 'cors';
 import express, { json } from 'express';
+
 const app = express();
 const port = 22001;
 app.use(cors());
