@@ -11,7 +11,7 @@ app.use(json());
 app.use(logger);
 
 app.get('/a', (req, res) => {
-  res.send('HELLO WORLD NODE SERVER...');
+  res.send('HELLO WORLD NODE SERVER...2');
 });
 
 app.listen(port, () => {

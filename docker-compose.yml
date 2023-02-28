@@ -7,6 +7,11 @@ services:
       - '127.0.0.1:22001:22001'
     volumes:
       - node_modules_volume:/app/node_modules
+    logging:
+      driver: json-file
+      options:
+        max-file: '3'
+        max-size: 3m
 
 volumes:
   node_modules_volume:
