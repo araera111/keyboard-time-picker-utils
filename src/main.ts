@@ -15,5 +15,5 @@ app.get('/a', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`start server 22001`);
+  console.log(`start server http://127.0.0.1:22001`);
 });
