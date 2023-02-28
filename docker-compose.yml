@@ -5,3 +5,7 @@ services:
     init: true
     ports:
       - '127.0.0.1:22001:22001'
+    volumes:
+      - node_modules_volume:/app/node_modules
+
+volumes: node_modules_volume
