@@ -1,9 +1,16 @@
-FROM node:18.13-slim
-ENV NODE_ENV production
-
+FROM node:18.14-slim as builder
 WORKDIR /app
-COPY package.json yarn.lock ./
-RUN yarn install --prod --frozen-lockfile
+COPY package*.json ./
+COPY yarn.lock ./
+RUN yarn
+COPY ./src ./src
+COPY tsconfig.json ./
 RUN yarn build
-COPY . .
+
+FROM node:18.14-slim
+WORKDIR /app
+ENV NODE_ENV production
+COPY package*.json ./
+RUN npm install --omit=dev && npm cache clean --force
+COPY --from=builder /app/dist ./dist
 CMD ["node", "./dist/main.js"]

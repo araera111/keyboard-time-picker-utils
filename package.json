@@ -7,7 +7,7 @@
   "module": "dist/module.js",
   "scripts": {
     "start": "cross-env NODE_ENV=production node ./dist/main.js",
-    "build": "cross-env NODE_ENV=production tsc --build tsconfig.json",
+    "build": "esbuild ./src/main.ts --tsconfig=./tsconfig.json --minify --bundle --platform=node --outdir=dist",
     "lint-fix": "eslint --cache --fix src/ && prettier --write src/",
     "test": "jest",
     "type": "tsc --noEmit"
@@ -30,6 +30,7 @@
     "@typescript-eslint/parser": "^5.53.0",
     "cross-env": "^7.0.3",
     "crossenv": "^0.0.2-security",
+    "esbuild": "^0.17.10",
     "eslint": "^8.34.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-base-typescript": "^1.1.0",
