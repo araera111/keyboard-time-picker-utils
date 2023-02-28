@@ -6,7 +6,7 @@ const port = 22001;
 app.use(cors());
 app.use(json());
 
-app.get('/', (req, res) => {
+app.get('/a', (req, res) => {
   res.send('HELLO WORLD NODE SERVER...');
 });
 
