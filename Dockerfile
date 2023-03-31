@@ -16,4 +16,4 @@ COPY package*.json ./
 COPY yarn.lock ./
 RUN yarn install --production
 COPY --from=builder /app/dist ./dist
-CMD ["node", "./dist/main.js"]
+CMD ["node", "./dist/main.js
