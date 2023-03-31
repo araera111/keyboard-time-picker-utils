@@ -10,7 +10,7 @@ app.use(cors());
 app.use(json());
 app.use(logger);
 
-app.get('/a', (req, res) => {
+app.get('/', (req, res) => {
   res.send('HELLO WORLD NODE SERVER...2');
 });
 
