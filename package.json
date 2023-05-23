@@ -42,9 +42,7 @@
     "tsx": "^3.12.7",
     "typescript": "^5.0.4"
   },
-  "dependencies": {
-    "@noc/noc_common_types": "^1.0.20"
-  },
+  "dependencies": {},
   "volta": {
     "node": "18.14.1",
     "npm": "9.6.7"
