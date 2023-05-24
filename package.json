@@ -61,5 +61,9 @@
   "volta": {
     "node": "18.14.1",
     "npm": "9.6.7"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.0.1",
+    "hono": "^3.2.2"
   }
 }
