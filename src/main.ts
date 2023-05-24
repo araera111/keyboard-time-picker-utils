@@ -1,3 +1,5 @@
-const main = () => {};
+const main = () => {
+  console.log("Hello World!");
+};
 
 main();

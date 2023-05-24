@@ -1,21 +1,23 @@
 {
   "compilerOptions": {
     "target": "es2022",
-    "module": "commonjs",
+    "module": "ESNext",
     "moduleResolution": "node",
-    "outDir": "dist",
+    "outDir": "./module/",
     "inlineSources": true,
     "sourceMap": true,
+    "newLine": "LF",
     "sourceRoot": "/",
     "lib": ["es2022"],
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "declaration": true,
     "strict": true,
     "skipLibCheck": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "removeComments": true,
-    "noUncheckedIndexedAccess":true
+    "noUncheckedIndexedAccess": true
   },
-  "include": ["./src"]
+  "include": ["src/**/*.ts"]
 }

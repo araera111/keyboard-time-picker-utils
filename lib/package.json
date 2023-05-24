@@ -2,24 +2,8 @@
   "name": "typescript",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
+  "type": "commonjs",
   "source": "./src/main.ts",
-  "main": "./lib/index.js",
-  "module": "./module/index.js",
-  "types": "./lib/index.d.ts",
-  "exports": {
-    ".": {
-      "import": {
-        "types": "./module/index.d.ts",
-        "default": "./module/index.js"
-      },
-      "require": {
-        "types": "./lib/index.d.ts",
-        "default": "./lib/index.js"
-      },
-      "default": "./lib/index.js"
-    }
-  },
   "scripts": {
     "dev": "tsx ./src/main.ts",
     "start": "cross-env NODE_ENV=production node ./dist/main.js",
