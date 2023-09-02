@@ -1,1 +1,0 @@
-{"version":3,"file":"main.js","sourceRoot":"/","sources":["main.ts"],"names":[],"mappings":";AAAA,MAAM,IAAI,GAAG,GAAG,EAAE;IAChB,OAAO,CAAC,GAAG,CAAC,cAAc,CAAC,CAAC;AAC9B,CAAC,CAAC;AAEF,IAAI,EAAE,CAAC","sourcesContent":["const main = () => {\n  console.log(\"Hello World!\");\n};\n\nmain();\n"]}
