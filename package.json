@@ -63,7 +63,9 @@
     ".": {
       "types": "./lib/main.d.ts",
       "browser": {
-        "types": "./lib/main.d.ts",
+        "types": "./esm/main.d.ts",
+        "module": "./esm/index.js",
+        "import": "./esm/index.js",
         "default": "./lib/browser/index.js"
       },
       "node": {
