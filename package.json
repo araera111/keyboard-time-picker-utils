@@ -43,10 +43,7 @@
       "browser"
     ],
     "support": "stable",
-    "format": [
-      "lib",
-      "esm"
-    ],
+    "format": "lib",
     "inputs": {
       "index": "src/main.ts"
     }
@@ -63,9 +60,7 @@
     ".": {
       "types": "./lib/main.d.ts",
       "browser": {
-        "types": "./esm/main.d.ts",
-        "module": "./esm/index.js",
-        "import": "./esm/index.js",
+        "types": "./lib/main.d.ts",
         "default": "./lib/browser/index.js"
       },
       "node": {
