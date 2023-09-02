@@ -43,7 +43,10 @@
       "browser"
     ],
     "support": "stable",
-    "format": "lib",
+    "format": [
+      "lib",
+      "esm"
+    ],
     "inputs": {
       "index": "src/main.ts"
     }
