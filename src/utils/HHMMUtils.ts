@@ -22,6 +22,7 @@ import * as O from "fp-ts/Option";
 import { match } from "ts-pattern";
 import {
   HHmmLRHandlerProps,
+  HHmmLRState,
   MoveOption,
 } from "../types/keyboardTimePickerType";
 import { HLeftInputValidate } from "./HLeftUtil";
@@ -272,4 +273,35 @@ export const HHmmLRHandler = ({
     focusElement(nextId ?? "");
   }
   return result;
+};
+
+type GetValueAndIdProps = {
+  type: HHmmLRState;
+  idList: string[];
+  HHmm: string;
+};
+export const getValueAndId = ({
+  type,
+  idList,
+}: GetValueAndIdProps): O.Option<{
+  value: string;
+  id: string;
+}> => {
+  const value = match(type)
+    .with("HLeft", () => idList[0])
+    .with("HRight", () => idList[1])
+    .with("MLeft", () => idList[3])
+    .with("MRight", () => idList[4])
+    .exhaustive();
+
+  const id = match(type)
+    .with("HLeft", () => idList[0])
+    .with("HRight", () => idList[1])
+    .with("MLeft", () => idList[2])
+    .with("MRight", () => idList[3])
+    .exhaustive();
+
+  if (isNil(id) || isNil(value)) return O.none;
+
+  return O.some({ value, id });
 };
