@@ -283,15 +283,16 @@ type GetValueAndIdProps = {
 export const getValueAndId = ({
   type,
   idList,
+  HHmm,
 }: GetValueAndIdProps): O.Option<{
   value: string;
   id: string;
 }> => {
   const value = match(type)
-    .with("HLeft", () => idList[0])
-    .with("HRight", () => idList[1])
-    .with("MLeft", () => idList[3])
-    .with("MRight", () => idList[4])
+    .with("HLeft", () => HHmm[0])
+    .with("HRight", () => HHmm[1])
+    .with("MLeft", () => HHmm[3])
+    .with("MRight", () => HHmm[4])
     .exhaustive();
 
   const id = match(type)
