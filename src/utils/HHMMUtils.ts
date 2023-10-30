@@ -314,9 +314,11 @@ export const getValueAndId = ({
 
 type MakeOptionsProps = {
   howMany: number;
+  baseOption: KeyboardTimePickerOption;
 };
 export const makeOptions = ({
   howMany,
+  baseOption,
 }: MakeOptionsProps): KeyboardTimePickerOption[] => {
   const r = range(0, howMany); /* howMany = 3 -> 0,1,2 */
   const makeId = () =>
@@ -325,8 +327,8 @@ export const makeOptions = ({
   const idList = r
     .map(() => makeId())
     .map((y) => ({
-      ...basicKeyboardTimePickerOption,
-      move: { ...basicKeyboardTimePickerOption.move, idList: y },
+      ...baseOption,
+      move: { ...baseOption.move, idList: y },
     }));
 
   const options = idList.map((x, i) => {
