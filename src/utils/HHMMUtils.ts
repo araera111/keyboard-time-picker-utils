@@ -1,4 +1,5 @@
 import { includes, isNil, range, reverse } from "ramda";
+import { v4 } from "uuid";
 
 const validInputList = [
   "-1",
@@ -23,12 +24,16 @@ import { match } from "ts-pattern";
 import {
   HHmmLRHandlerProps,
   HHmmLRState,
+  KeyboardTimePickerOption,
   MoveOption,
+  basicKeyboardTimePickerOption,
 } from "../types/keyboardTimePickerType";
 import { HLeftInputValidate } from "./HLeftUtil";
 import { HRightInputValidate } from "./HRightUtil";
 import { MLeftInputValidate } from "./MLeftUtil";
 import { MRightInputValidate } from "./MRightUtil";
+import { produce } from "immer";
+import { after } from "node:test";
 
 type GetHHmmResult = {
   HRight: string;
@@ -305,4 +310,57 @@ export const getValueAndId = ({
   if (isNil(id) || isNil(value)) return O.none;
 
   return O.some({ value, id });
+};
+
+type MakeOptionsProps = {
+  howMany: number;
+};
+export const makeOptions = ({
+  howMany,
+}: MakeOptionsProps): KeyboardTimePickerOption[] => {
+  const r = range(0, howMany); /* howMany = 3 -> 0,1,2 */
+  const makeId = () =>
+    ["HLeft", "HRight", "MLeft", "MRight"].map((x) => "t" + v4());
+
+  const idList = r
+    .map(() => makeId())
+    .map((y) => ({
+      ...basicKeyboardTimePickerOption,
+      move: { ...basicKeyboardTimePickerOption.move, idList: y },
+    }));
+
+  const options = idList.map((x, i) => {
+    /* 前のoption */
+    const beforeOption = idList[i - 1];
+
+    /* 前のOptionがない（つまり、最初のアイテムのとき） */
+    if (isNil(beforeOption)) {
+      const lastItem = idList[idList.length - 1];
+      const option = produce(x, (draft) => {
+        draft.move.beforeElement = lastItem?.move?.idList[3] ?? "";
+        draft.move.afterElement = idList[i + 1]?.move?.idList[0] ?? "";
+      });
+      return option;
+    }
+
+    /* 次のOptionがない（つまり、最後のアイテムのとき） */
+    const afterOption = idList[i + 1];
+    if (isNil(afterOption)) {
+      /* 次のアイテムは一番最初 */
+      const firstItem = idList[0];
+      const option = produce(x, (draft) => {
+        draft.move.beforeElement = idList[i - 1]?.move?.idList[3] ?? "";
+        draft.move.afterElement = firstItem?.move?.idList[0] ?? "";
+      });
+      return option;
+    }
+
+    const option = produce(x, (draft) => {
+      draft.move.beforeElement = beforeOption?.move?.idList[3] ?? "";
+      draft.move.afterElement = afterOption?.move?.idList[0] ?? "";
+    });
+    return option;
+  });
+
+  return options;
 };
