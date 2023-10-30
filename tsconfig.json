@@ -8,7 +8,7 @@
     "sourceMap": true,
     "newLine": "LF",
     "sourceRoot": "/",
-    "lib": ["es2022"],
+    "lib": ["es2022", "DOM"],
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "declaration": true,
@@ -18,7 +18,7 @@
     "emitDecoratorMetadata": true,
     "removeComments": true,
     "noUncheckedIndexedAccess": true,
-    "types":["vitest/globals"]
+    "types": ["vitest/globals"]
   },
   "include": ["src/**/*.ts"]
 }

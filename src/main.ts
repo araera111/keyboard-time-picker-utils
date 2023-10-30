@@ -1,6 +1,2 @@
-const main = () => {
-  console.log("main");
-};
-main();
-
-export * from './sum';
+export * from "./utils";
+export * from "./types";

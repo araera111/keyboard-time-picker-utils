@@ -1,5 +1,5 @@
 {
-  "name": "libname",
+  "name": "keyboard-time-picker-utils",
   "version": "1.0.0",
   "description": "",
   "type": "module",
@@ -79,5 +79,13 @@
     "esm/**/*",
     "lib/**/*",
     "src/**/*"
-  ]
+  ],
+  "dependencies": {
+    "@types/ramda": "^0.29.7",
+    "dayjs": "^1.11.10",
+    "fp-ts": "^2.16.1",
+    "ramda": "^0.29.1",
+    "ts-pattern": "^5.0.5",
+    "zod": "^3.22.4"
+  }
 }
