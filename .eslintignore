@@ -1,8 +1,0 @@
-dist
-node_modules
-jest.config.json
-tsconfig.json
-upload.mjs
-*.mjs
-old
-vite.config.ts
